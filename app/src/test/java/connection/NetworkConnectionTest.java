@@ -11,7 +11,6 @@ public class NetworkConnectionTest {
         NetworkConnection connection = new NetworkConnection();
         boolean validConnection = connection.testConnection();
         Assert.assertTrue(validConnection);
-
     }
 
 

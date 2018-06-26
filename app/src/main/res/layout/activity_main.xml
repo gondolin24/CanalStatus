@@ -4,15 +4,140 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#6EC4DB"
     tools:context="com.example.gondolin.canalstatus.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/boat"
+        android:orientation="vertical">
+
+
+        <Spinner
+            android:id="@+id/canalDropDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:gravity="top" />
+        <TextView
+
+            android:id="@+id/canalLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="3dip"
+            android:text="location"
+            android:textColor="#000000"
+            android:textSize="50px"
+            android:textStyle="bold" />
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/tableInformation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="50px"
+            android:stretchColumns="1">
+
+
+            <TableRow
+                android:id="@+id/stats"
+                android:background="#66AB8c"
+                android:paddingLeft="30px">
+
+                <TextView
+                    android:layout_column="0"
+                    android:padding="3dip"
+                    android:text="Bridge Status"
+                    android:textColor="#000000"
+                    android:textSize="30px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/canalStatus"
+                    android:layout_gravity="center"
+                    android:padding="3dip"
+                    android:text="PlaceHolder"
+                    android:textColor="#000000"
+                    android:textSize="30px"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:layout_gravity="left"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow
+                android:background="#FFF7C0"
+                android:paddingLeft="30px">
+
+                <TextView
+                    android:layout_column="0"
+                    android:padding="3dip"
+                    android:text="Next Boat Comes At: "
+                    android:textColor="#000000"
+                    android:textSize="30px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/nextBoat"
+                    android:layout_gravity="center"
+                    android:padding="3dip"
+                    android:text="PlaceHolder"
+                    android:textColor="#000000"
+                    android:textSize="30px"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:padding="3dip"
+                    android:text="" />
+
+                <TextView
+                    android:layout_gravity="left"
+                    android:padding="3dip"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow
+                android:background="#FFF7C0"
+                android:paddingLeft="30px">
+
+                <TextView
+                    android:layout_column="0"
+                    android:padding="3dip"
+                    android:text="Maybe Don't go Between: "
+                    android:textColor="#000000"
+                    android:textSize="30px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/between"
+                    android:layout_gravity="center"
+                    android:padding="3dip"
+                    android:text="PlaceHolder"
+                    android:textColor="#000000"
+                    android:textSize="30px"
+                    android:textStyle="bold" />
+            </TableRow>
+
+
+        </TableLayout>
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
