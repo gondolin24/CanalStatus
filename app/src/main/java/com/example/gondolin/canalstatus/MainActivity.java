@@ -1,5 +1,6 @@
 package com.example.gondolin.canalstatus;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -75,9 +76,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    @SuppressLint("SetTextI18n")
     public void setTable(int index) {
 
-        SimpleDateFormat thClock = new SimpleDateFormat("hh:mm a");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat thClock = new SimpleDateFormat("hh:mm a");
         CanalData current = canalInformation.getCanalInfromation().get(index);
         location.setText(current.getLocation());
         //  location.setBackgroundColor(#);
