@@ -38,7 +38,7 @@
         <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/tableInformation"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:paddingTop="50px"
             android:stretchColumns="1">
 
@@ -139,5 +139,19 @@
 
         </TableLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:paddingTop="200px"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:layout_height="wrap_content"
+            android:text="refresh" />
+    </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
