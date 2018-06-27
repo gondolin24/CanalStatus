@@ -131,19 +131,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-
     private void toggleInvisible(Boolean visible) {
         if (visible) {
-            location.setVisibility(View.INVISIBLE);
-            infoTable.setVisibility(View.INVISIBLE);
-            refresh.setVisibility(View.INVISIBLE);
-            currentTime.setVisibility(View.INVISIBLE);
+            setVisibility(View.INVISIBLE);
         } else {
-            location.setVisibility(View.VISIBLE);
-            infoTable.setVisibility(View.VISIBLE);
-            refresh.setVisibility(View.VISIBLE);
-            currentTime.setVisibility(View.VISIBLE);
+            setVisibility(View.VISIBLE);
         }
+    }
+
+    private void setVisibility(int visibility) {
+        location.setVisibility(visibility);
+        infoTable.setVisibility(visibility);
+        refresh.setVisibility(visibility);
+        currentTime.setVisibility(visibility);
     }
 
     @Override
