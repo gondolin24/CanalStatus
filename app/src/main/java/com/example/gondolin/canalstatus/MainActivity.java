@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -21,7 +22,7 @@ import java.util.Locale;
 import connection.CanalInformation;
 import models.CanalData;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     static final long ONE_MINUTE_IN_MILLIS = 60000;//millisecs
     Spinner dropDown;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     TextView nextBoat;
     TextView bound;
     TableRow stats;
+    Button refresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         nextBoat = (TextView) findViewById(R.id.nextBoat);
         bound = (TextView) findViewById(R.id.between);
         stats = (TableRow) findViewById(R.id.stats);
+        refresh = (Button) findViewById(R.id.refresh);
         dropDown.setOnItemSelectedListener(this);
+        refresh.setOnClickListener(this);
         setDropDown();
     }
 
@@ -62,6 +66,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        refreshPage(i);
+    }
+
+
+    private void refreshPage(int i) {
 
         if (i == 0) {
             toggleInvisible(true);
@@ -85,11 +94,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //  location.setBackgroundColor(#);
         String status = current.getStatus().getStatus();
 
-if(status.contains("Un")){
-    stats.setBackgroundColor(Color.parseColor("#FA7C92"));
-}else{
-    stats.setBackgroundColor(Color.parseColor("#66AB8C"));
-}
+        if (status.contains("Un")) {
+            stats.setBackgroundColor(Color.parseColor("#FA7C92"));
+        } else {
+            stats.setBackgroundColor(Color.parseColor("#66AB8C"));
+        }
         cStatus.setText(status);
 
         if (current.getStatus().getNext() == null) {
@@ -123,9 +132,16 @@ if(status.contains("Un")){
         if (visible) {
             location.setVisibility(View.INVISIBLE);
             infoTable.setVisibility(View.INVISIBLE);
+            refresh.setVisibility(View.INVISIBLE);
         } else {
             location.setVisibility(View.VISIBLE);
             infoTable.setVisibility(View.VISIBLE);
+            refresh.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+        refreshPage(dropDown.getSelectedItemPosition());
     }
 }
