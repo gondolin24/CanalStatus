@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
         if (i == 0) {
-            toggleInvise(true);
+            toggleInvisible(true);
         } else {
-            toggleInvise(false);
+            toggleInvisible(false);
             setTable(i - 1);
         }
     }
@@ -119,7 +119,7 @@ if(status.contains("Un")){
     }
 
 
-    private void toggleInvise(Boolean visible) {
+    private void toggleInvisible(Boolean visible) {
         if (visible) {
             location.setVisibility(View.INVISIBLE);
             infoTable.setVisibility(View.INVISIBLE);
