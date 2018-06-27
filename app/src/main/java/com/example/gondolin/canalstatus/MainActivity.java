@@ -32,8 +32,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     TextView cStatus;
     TextView nextBoat;
     TextView bound;
+    TextView currentTime;
     TableRow stats;
     Button refresh;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         location = (TextView) findViewById(R.id.canalLocation);
         cStatus = (TextView) findViewById(R.id.canalStatus);
         nextBoat = (TextView) findViewById(R.id.nextBoat);
+        currentTime = (TextView) findViewById(R.id.currentTime);
         bound = (TextView) findViewById(R.id.between);
         stats = (TableRow) findViewById(R.id.stats);
         refresh = (Button) findViewById(R.id.refresh);
@@ -119,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 String dontGo = thClock.format(lowerBound) + " -" + thClock.format(upperBound);
                 bound.setText(dontGo);
+                currentTime.setText(dateTime);
             } catch (Exception e) {
                 bound.setText("Internal Error. Tell Eduardo");
                 nextBoat.setText("Internal Error. Tell Eduardo");
@@ -133,10 +137,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             location.setVisibility(View.INVISIBLE);
             infoTable.setVisibility(View.INVISIBLE);
             refresh.setVisibility(View.INVISIBLE);
+            currentTime.setVisibility(View.INVISIBLE);
         } else {
             location.setVisibility(View.VISIBLE);
             infoTable.setVisibility(View.VISIBLE);
             refresh.setVisibility(View.VISIBLE);
+            currentTime.setVisibility(View.VISIBLE);
         }
     }
 
