@@ -41,15 +41,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dropDown = (Spinner) findViewById(R.id.canalDropDown);
-        infoTable = (TableLayout) findViewById(R.id.tableInformation);
-        location = (TextView) findViewById(R.id.canalLocation);
-        cStatus = (TextView) findViewById(R.id.canalStatus);
-        nextBoat = (TextView) findViewById(R.id.nextBoat);
-        currentTime = (TextView) findViewById(R.id.currentTime);
-        bound = (TextView) findViewById(R.id.between);
-        stats = (TableRow) findViewById(R.id.stats);
-        refresh = (Button) findViewById(R.id.refresh);
+        dropDown = findViewById(R.id.canalDropDown);
+        infoTable = findViewById(R.id.tableInformation);
+        location = findViewById(R.id.canalLocation);
+        cStatus = findViewById(R.id.canalStatus);
+        nextBoat = findViewById(R.id.nextBoat);
+        currentTime = findViewById(R.id.currentTime);
+        bound = findViewById(R.id.between);
+        stats = findViewById(R.id.stats);
+        refresh = findViewById(R.id.refresh);
         dropDown.setOnItemSelectedListener(this);
         refresh.setOnClickListener(this);
         setDropDown();
