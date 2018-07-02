@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -23,6 +24,9 @@ import connection.CanalInformation;
 import models.CanalData;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+
+    @SuppressLint("SimpleDateFormat")
+    private static final SimpleDateFormat thClock = new SimpleDateFormat("hh:mm a");
 
     static final long ONE_MINUTE_IN_MILLIS = 60000;//millisecs
     Spinner dropDown;
@@ -91,10 +95,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @SuppressLint("SetTextI18n")
     public void setTable(int index) {
 
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat thClock = new SimpleDateFormat("hh:mm a");
+
         CanalData current = canalInformation.getCanalInfromation().get(index);
         location.setText(current.getLocation());
-        //  location.setBackgroundColor(#);
         String status = current.getStatus().getStatus();
 
         if (status.contains("Un")) {
@@ -122,7 +125,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                 String dontGo = thClock.format(lowerBound) + " -" + thClock.format(upperBound);
                 bound.setText(dontGo);
-                currentTime.setText(dateTime);
+                Calendar calendar = Calendar.getInstance();
+                currentTime.setText(thClock.format(calendar.getTime()));
             } catch (Exception e) {
                 bound.setText("Internal Error. Tell Eduardo");
                 nextBoat.setText("Internal Error. Tell Eduardo");
